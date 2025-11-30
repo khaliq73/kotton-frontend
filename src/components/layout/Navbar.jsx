@@ -97,17 +97,29 @@ const Navbar = () => {
                     onMouseEnter={() => item.dropdown && setOpenDropdown(item.label)}
                     onMouseLeave={() => setOpenDropdown(null)}
                   >
-                    <Link
-                      to={item.path}
-                      className={`flex items-center gap-1 text-xs md:text-sm font-medium transition-colors uppercase whitespace-nowrap ${
-                        location.pathname === item.path
-                          ? 'text-black'
-                          : 'text-gray-700 hover:text-black'
-                      }`}
-                    >
-                      {item.label}
-                      {item.dropdown && <ChevronDown className="w-3 h-3 md:w-4 md:h-4" />}
-                    </Link>
+                    {item.dropdown ? (
+                      <button
+                        className={`flex items-center gap-1 text-xs md:text-sm font-medium transition-colors uppercase whitespace-nowrap ${
+                          location.pathname === item.path
+                            ? 'text-black'
+                            : 'text-gray-700 hover:text-black'
+                        }`}
+                      >
+                        {item.label}
+                        <ChevronDown className="w-3 h-3 md:w-4 md:h-4" />
+                      </button>
+                    ) : (
+                      <Link
+                        to={item.path}
+                        className={`flex items-center gap-1 text-xs md:text-sm font-medium transition-colors uppercase whitespace-nowrap ${
+                          location.pathname === item.path
+                            ? 'text-black'
+                            : 'text-gray-700 hover:text-black'
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
 
                     {/* Dropdown Menu with gap bridge */}
                     {item.dropdown && openDropdown === item.label && (

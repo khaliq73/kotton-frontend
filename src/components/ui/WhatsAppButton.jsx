@@ -2,7 +2,7 @@ import { MessageCircle } from 'lucide-react';
 import Button from '../common/Button';
 
 const WhatsAppButton = ({ productName, className = '', size = 'lg' }) => {
-  const phoneNumber = '923001234567';
+  const phoneNumber = '923310000679';
   const message = productName
     ? `Hi, I'm interested in wholesale for ${productName}. Please share MOQ & pricing.`
     : "Hi, I'm interested in wholesale. Please share MOQ & pricing.";
